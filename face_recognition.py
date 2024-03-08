@@ -20,7 +20,7 @@ class Face_Recognition:
        title_lbl = Label(root, text="Face Recognition", font=("times new roman",30,"bold"),bg="white",fg="green")
        title_lbl.place(x=0, y=0, width=1530, height=45)
 
-       img_top = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img_top = Image.open("college_images\\download.webp")
        img_top = img_top.resize((650, 700))
        self.photoimg_top=ImageTk.PhotoImage(img_top)
 
@@ -28,7 +28,7 @@ class Face_Recognition:
        f_lbl.place(x=0,y=55,width=650,height=700) 
 
 
-       img_bottom = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img_bottom = Image.open("college_images\\download.webp")
        img_bottom = img_bottom.resize((950, 700))
        self.photoimg_bottom=ImageTk.PhotoImage(img_bottom)
 

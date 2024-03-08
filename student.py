@@ -5,6 +5,20 @@ from tkinter import messagebox
 import mysql.connector
 import cv2
 
+import mysql.connector
+
+try:
+    connection = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="Yogesh270801",
+        database="face_recognizer",
+    )
+    print("Connected to MySQL Server")
+    connection.close()
+except Exception as e:
+    print(f"Error: {e}")
+
 class Student:
     def __init__(self,root):
        self.root = root
@@ -29,7 +43,7 @@ class Student:
 
 
 #first image
-       img = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img = Image.open("college_images\\download.webp")
 
        img = img.resize((500, 130))
        self.photoimg=ImageTk.PhotoImage(img)
@@ -38,7 +52,7 @@ class Student:
        f_lbl.place(x=0,y=0,width=400,height=170)
 
 #second image
-       img1 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img1 = Image.open("college_images\\download.webp")
 
        img1 = img1.resize((500, 130))
        self.photoimg1=ImageTk.PhotoImage(img1)
@@ -47,7 +61,7 @@ class Student:
        f_lbl.place(x=500,y=0,width=400,height=170)
 
 #third image
-       img2 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img2 = Image.open("college_images\\download.webp")
 
        img2 = img2.resize((500, 130))
        self.photoimg2=ImageTk.PhotoImage(img2)
@@ -56,7 +70,7 @@ class Student:
        f_lbl.place(x=1000,y=0,width=400,height=170)
 
 #bg image
-       img3 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img3 = Image.open("college_images\\download.webp")
        img3 = img3.resize((1530, 710))
        self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -74,7 +88,7 @@ class Student:
        Left_frame = LabelFrame(self.root,bd=2,bg="white", relief=RIDGE, text= "Student details", font=("times new roman",12,"bold"))
        Left_frame.place(x=10,y=250, width=730,height=580)
 
-       img_left = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img_left = Image.open("college_images\\download.webp")
        img_left = img_left.resize((500, 130))
        self.photoimg_left=ImageTk.PhotoImage(img_left)
 
@@ -112,7 +126,7 @@ class Student:
        year_combo.grid(row=1, column=1, padx=2, pady=10, sticky=W)
 
        #semester
-       semester_label = Label(CurrentCourse_frame,textvariable=self.var_semester, text="Year",font=("times new roman",12,"bold"), bg="white")
+       semester_label = Label(CurrentCourse_frame,textvariable=self.var_semester, text="Semetser",font=("times new roman",12,"bold"), bg="white")
        semester_label.grid(row=1, column=2, padx=10,sticky=W)
 
        semester_combo= ttk.Combobox(CurrentCourse_frame,font=("times new roman",12,"bold"),state="readonly")
@@ -226,7 +240,7 @@ class Student:
        Right_frame = LabelFrame(self.root,bd=2,bg="white", relief=RIDGE, text= "Student details", font=("times new roman",12,"bold"))
        Right_frame.place(x=780,y=250, width=730,height=580)
 
-       img_right = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img_right = Image.open("college_images\\download.webp")
        img_right = img_right.resize((500, 130))
        self.photoimg_right=ImageTk.PhotoImage(img_right)
 
@@ -313,45 +327,43 @@ class Student:
        else:
            
            try:
-              with mysql.connector.connect(
+                connection = mysql.connector.connect(
                     host="localhost",
-                    username="root",
+                    user="root",
                     password="Yogesh270801",
                     database="face_recognizer",
-                ) as connection:
-                    my_cursor = connection.cursor()
-              my_cursor.execute("INSERT INTO student VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
-                                                                                           self.var_dep.get(),
-                                                                                           self.var_course.get(),
-                                                                                           self.var_year.get(),
-                                                                                           self.var_semester.get(),
-                                                                                           self.var_std_id.get(),
-                                                                                           self.var_std_name.get(),
-                                                                                           self.var_div.get(),
-                                                                                           self.var_roll.get(),
-                                                                                           self.var_gender.get(),
-                                                                                           self.var_dob.get(),
-                                                                                           self.var_email.get(),
-                                                                                           self.var_phone.get(),
-                                                                                           self.var_address.get(),
-                                                                                           self.var_teacher.get(),
-                                                                                           self.var_radio1.get()
-
-                                                                                    ))
-              connection.commit()
-              self.fetch_data()
-              connection.close()
-              messagebox.showinfo("success","added sucessfully", parent = self.root)
-       
+                )
+                my_cursor = connection.cursor()
+                my_cursor.execute("INSERT INTO student VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (
+                        self.var_dep.get(),
+                        self.var_course.get(),
+                        self.var_year.get(),
+                        self.var_semester.get(),
+                        self.var_std_id.get(),
+                        self.var_std_name.get(),
+                        self.var_div.get(),
+                        self.var_roll.get(),
+                        self.var_gender.get(),
+                        self.var_dob.get(),
+                        self.var_email.get(),
+                        self.var_phone.get(),
+                        self.var_address.get(),
+                        self.var_teacher.get(),
+                        self.var_radio1.get()
+                    ))
+                connection.commit()
+                self.fetch_data()
+                messagebox.showinfo("success", "added successfully", parent=self.root)
            except Exception as es:
-              messagebox.showerror("Error",f"due to :{str(es)}", parent=self.root)
+                messagebox.showerror("Error", f"due to :{str(es)}", parent=self.root)
+
 
 #fetch data
 
     def fetch_data(self):
         connection = mysql.connector.connect(
                     host="localhost",
-                    username="root",
+                    user="root",
                     password="Yogesh270801",
                     database="face_recognizer",
                 )
@@ -372,7 +384,7 @@ class Student:
         content = self.student_table.item(cursor_focus)
         data = content["values"]
 
-        self.var_dep.set(data[0]),
+        self.var_dep.set(data[0])
         self.var_course.set(data[1]),
         self.var_year.set(data[2]),
         self.var_semester.set(data[3]),
@@ -398,12 +410,12 @@ class Student:
                if update>0:
                      connection = mysql.connector.connect(
                      host="localhost",
-                     username="root",
+                     user="root",
                      password="Yogesh270801",
                      database="face_recognizer",
                      )
                      my_cursor = connection.cursor()
-                     my_cursor.execute("update student set dep=%s,course=%s,year=%s,semester=%s,division=%s,roll=%s,gender=%s,dob=%s,email=%s,address=%s,phone=%s,teacher=%s,photosample=%s, where student_id=%s",(
+                     my_cursor.execute("update student set dep=%s,course=%s,year=%s,semester=%s,division=%s,roll=%s,gender=%s,dob=%s,email=%s,address=%s,phone=%s,teacher=%s,photosample=%s where student_id=%s",(
                                                                                            self.var_dep.get(),
                                                                                            self.var_course.get(),
                                                                                            self.var_year.get(),
@@ -442,7 +454,7 @@ class Student:
                 if delete>0:
                     connection = mysql.connector.connect(
                     host="localhost",
-                    username="root",
+                    user="root",
                     password="Yogesh270801",
                     database="face_recognizer",
                 )
@@ -487,7 +499,7 @@ class Student:
             try:
               connection = mysql.connector.connect(
               host="localhost",
-              username="root",
+              user="root",
               password="Yogesh270801",
               database="face_recognizer",
               )
@@ -497,23 +509,24 @@ class Student:
               id=0
               for x in myresult:
                   id+=1
-              my_cursor.execute("update student set, dep=%s,course=%s,year=%s,semester=%s,division=%s,roll=%s,gender=%s,dob=%s,email=%s,address=%s,phone=%s,teacher=%s,photosample=%s, where student_id=%s",(
-                                                                                           self.var_dep.get(),
-                                                                                           self.var_course.get(),
-                                                                                           self.var_year.get(),
-                                                                                           self.var_semester.get(),
-                                                                                           self.var_std_name.get(),
-                                                                                           self.var_div.get(),
-                                                                                           self.var_roll.get(),
-                                                                                           self.var_gender.get(),
-                                                                                           self.var_dob.get(),
-                                                                                           self.var_email.get(),
-                                                                                           self.var_phone.get(),
-                                                                                           self.var_address.get(),
-                                                                                           self.var_teacher.get(),
-                                                                                           self.var_radio1.get(),
-                                                                                           self.var_std_id.get()==id+1  
-                                                                                       ))  
+              my_cursor.execute("update student SET dep=%s,course=%s,year=%s,semester=%s,division=%s,roll=%s,gender=%s,dob=%s,email=%s,address=%s,phone=%s,teacher=%s,photosample=%s where student_id=%s", (
+                                                                                                self.var_dep.get(),
+                                                                                                self.var_course.get(),
+                                                                                                self.var_year.get(),
+                                                                                                self.var_semester.get(),
+                                                                                                self.var_std_name.get(),
+                                                                                                self.var_div.get(),
+                                                                                                self.var_roll.get(),
+                                                                                                self.var_gender.get(),
+                                                                                                self.var_dob.get(),
+                                                                                                self.var_email.get(),
+                                                                                                self.var_phone.get(),
+                                                                                                self.var_address.get(),
+                                                                                                self.var_teacher.get(),
+                                                                                                self.var_radio1.get(),
+                                                                                                self.var_std_id.get()==id+1  
+                                                                                            ))
+
               connection.commit() 
               self.fetch_data()
               self.reset_dat()
@@ -539,7 +552,7 @@ class Student:
                   face = cv2.resize(face_cropped(my_frame),(450,450))
                   face = cv2.cvtColor(face,cv2.COLOR_BGR2GRAY)
                   file_name_path = "data/user."+str(id)+"."+str(img_id)+".jpg"
-                  cv2.imwrite(file_name_path)
+                  cv2.imwrite(file_name_path, face)
                   cv2.putText(face, str(img_id),(50,50), cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)
                   cv2.imshow("Cropped face",face)
 

@@ -16,36 +16,8 @@ class Face_Recognition_System:
        self.root.geometry("1530x790+0+0")
        self.root.title("face recognition system")
 
-# #first image
-#        img = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
-
-#        img = img.resize((500, 130))
-#        self.photoimg=ImageTk.PhotoImage(img)
-
-#        f_lbl = Label(self.root,image=self.photoimg)
-#        f_lbl.place(x=0,y=0,width=400,height=230)
-
-# #second image
-#        img1 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
-
-#        img1 = img1.resize((500, 130))
-#        self.photoimg1=ImageTk.PhotoImage(img1)
-
-#        f_lbl = Label(self.root,image=self.photoimg)
-#        f_lbl.place(x=500,y=0,width=400,height=230)
-
-# #third image
-#        img2 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
-
-#        img2 = img2.resize((500, 130))
-#        self.photoimg2=ImageTk.PhotoImage(img2)
-
-#        f_lbl = Label(self.root,image=self.photoimg2)
-#        f_lbl.place(x=1000,y=0,width=400,height=230)
-
-
 #bg image
-       img3 = Image.open("college_images\wallpaperflare.com_wallpaper.jpg")
+       img3 = Image.open("college_images\\wallpaperflare.com_wallpaper.jpg")
        img3 = img3.resize((1530, 710))
        self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -57,7 +29,7 @@ class Face_Recognition_System:
        title_lbl.place(x=0, y=0, width=1530, height=45)
 
 #student button
-       img4 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img4 = Image.open("college_images\\download.webp")
        img4 = img4.resize((220, 220))
        self.photoimg4=ImageTk.PhotoImage(img4)
 
@@ -68,7 +40,7 @@ class Face_Recognition_System:
        b1_1.place(x=200,y=340,width=220,height=40)
 
 #student button
-       img5 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img5 = Image.open("college_images\\download.webp")
        img5 = img5.resize((220, 220))
        self.photoimg5=ImageTk.PhotoImage(img5)
 
@@ -79,7 +51,7 @@ class Face_Recognition_System:
        b1_1.place(x=500,y=340,width=220,height=40)
 
        #Attendance
-       img6 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img6 = Image.open("college_images\\download.webp")
        img6 = img6.resize((220, 220))
        self.photoimg6=ImageTk.PhotoImage(img6)
 
@@ -90,7 +62,7 @@ class Face_Recognition_System:
        b1_1.place(x=800,y=340,width=220,height=40)
 
 #help
-       img7 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img7 = Image.open("college_images\\download.webp")
        img7 = img7.resize((220, 220))
        self.photoimg7=ImageTk.PhotoImage(img7)
 
@@ -101,7 +73,7 @@ class Face_Recognition_System:
        b1_1.place(x=1100,y=340,width=220,height=40)
 
        #train
-       img8 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img8 = Image.open("college_images\\download.webp")
        img8 = img8.resize((220, 220))
        self.photoimg8=ImageTk.PhotoImage(img8)
 
@@ -112,7 +84,7 @@ class Face_Recognition_System:
        b1_1.place(x=200,y=620,width=220,height=40)
 
               #photos
-       img9 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img9 = Image.open("college_images\\download.webp")
        img9 = img9.resize((220, 220))
        self.photoimg9=ImageTk.PhotoImage(img9)
 
@@ -123,7 +95,7 @@ class Face_Recognition_System:
        b1_1.place(x=500,y=620,width=220,height=40)
 
               #Devloper
-       img10 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img10 = Image.open("college_images\\download.webp")
        img10 = img10.resize((220, 220))
        self.photoimg10=ImageTk.PhotoImage(img10)
 
@@ -134,7 +106,7 @@ class Face_Recognition_System:
        b1_1.place(x=800,y=620,width=220,height=40)
        
        #Exit face button
-       img11 = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img11 = Image.open("college_images\\download.webp")
        img11 = img11.resize((220, 220))
        self.photoimg10=ImageTk.PhotoImage(img11)
 
