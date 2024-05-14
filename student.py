@@ -43,100 +43,93 @@ class Student:
 
 
 #first image
-       img = Image.open("college_images\\download.webp")
+       img = Image.open("college_images\\manage.jpeg")
 
        img = img.resize((500, 130))
        self.photoimg=ImageTk.PhotoImage(img)
 
        f_lbl = Label(self.root,image=self.photoimg)
-       f_lbl.place(x=0,y=0,width=400,height=170)
+       f_lbl.place(x=0,y=0,width=400,height=270)
 
 #second image
-       img1 = Image.open("college_images\\download.webp")
+       img1 = Image.open("college_images\\studentdata.jpeg")
 
        img1 = img1.resize((500, 130))
        self.photoimg1=ImageTk.PhotoImage(img1)
 
-       f_lbl = Label(self.root,image=self.photoimg)
-       f_lbl.place(x=500,y=0,width=400,height=170)
+       f_lbl = Label(self.root,image=self.photoimg1)
+       f_lbl.place(x=500,y=0,width=400,height=270)
 
 #third image
-       img2 = Image.open("college_images\\download.webp")
+       img2 = Image.open("college_images\\management.jpeg")
 
        img2 = img2.resize((500, 130))
        self.photoimg2=ImageTk.PhotoImage(img2)
 
        f_lbl = Label(self.root,image=self.photoimg2)
-       f_lbl.place(x=1000,y=0,width=400,height=170)
+       f_lbl.place(x=1000,y=0,width=400,height=270)
 
 #bg image
-       img3 = Image.open("college_images\\download.webp")
-       img3 = img3.resize((1530, 710))
-       self.photoimg3=ImageTk.PhotoImage(img3)
-
-       bg_image = Label(self.root,image=self.photoimg3)
-       bg_image.place(x=0,y=130,width=1530,height=710)
-
        
-       title_lbl = Label(root, text="student management  System", font=("times new roman",35,"bold"),bg="red",fg="white")
+       title_lbl = Label(root, text="student management System", font=("times new roman",35,"bold"),bg="red",fg="white")
        title_lbl.place(x=0, y=0, width=1530, height=45)
 
        main_frame=Frame(self.root, bd=2,bg="white")
        main_frame.place(x=0, y=170, width=1550,height=700)
 
 # left label frame
-       Left_frame = LabelFrame(self.root,bd=2,bg="white", relief=RIDGE, text= "Student details", font=("times new roman",12,"bold"))
-       Left_frame.place(x=10,y=250, width=730,height=580)
+       Left_frame = LabelFrame(self.root,bd=2,bg="white", relief=RIDGE, text= "Student Details", font=("times new roman",12,"bold"))
+       Left_frame.place(x=10,y=200, width=730,height=620)
 
-       img_left = Image.open("college_images\\download.webp")
+       img_left = Image.open("college_images\\student.jpeg")
        img_left = img_left.resize((500, 130))
        self.photoimg_left=ImageTk.PhotoImage(img_left)
 
        f_lbl = Label(self.root,image=self.photoimg_left)
-       f_lbl.place(x=15,y=270,width=720,height=130)    
+       f_lbl.place(x=15,y=220,width=720,height=130)    
 
 #current course
-       CurrentCourse_frame = LabelFrame(Left_frame, bd=2,bg="white", relief=RIDGE, text= "current course information", font=("times new roman",12,"bold"))
+       CurrentCourse_frame = LabelFrame(Left_frame, bd=2,bg="white", relief=RIDGE, text= "Current course information", font=("times new roman",12,"bold"))
        CurrentCourse_frame.place(x=10,y=130, width=710,height=200) 
        #department
-       dep_label = Label(CurrentCourse_frame, text="department",font=("times new roman",12,"bold"), bg="white")
+       dep_label = Label(CurrentCourse_frame, text="Department",font=("times new roman",12,"bold"), bg="white")
        dep_label.grid(row=0, column=0, padx=10,sticky=W)
 
        dep_combo= ttk.Combobox(CurrentCourse_frame,textvariable=self.var_dep,font=("times new roman",12,"bold"),state="readonly")
-       dep_combo["values"]=("Select Department", "computer science", "IT", "Civil","Mechanichal")
+       dep_combo["values"]=("Select Department", "computer science", "Information Technology","Artificial intelligence", "Civil", "Mechanichal")
        dep_combo.current(0)
        dep_combo.grid(row=0, column=1, padx=2, pady=10, sticky=W)
 
        #Course
-       course_label = Label(CurrentCourse_frame,textvariable=self.var_course, text="Course",font=("times new roman",12,"bold"), bg="white")
+       course_label = Label(CurrentCourse_frame, text="Course",font=("times new roman",12,"bold"), bg="white")
        course_label.grid(row=0, column=2, padx=10,sticky=W)
 
-       course_combo= ttk.Combobox(CurrentCourse_frame,font=("times new roman",12,"bold"),state="readonly")
+       course_combo= ttk.Combobox(CurrentCourse_frame,textvariable=self.var_course,font=("times new roman",12,"bold"),state="readonly")
        course_combo["values"]=("Select Course", "BE", "B TEch", "SE","FE")
        course_combo.current(0)
        course_combo.grid(row=0, column=3, padx=2, pady=10, sticky=W)
 
        #year
-       year_label = Label(CurrentCourse_frame,textvariable=self.var_year, text="Year",font=("times new roman",12,"bold"), bg="white")
+       year_label = Label(CurrentCourse_frame, text="Year",font=("times new roman",12,"bold"), bg="white")
        year_label.grid(row=1, column=0, padx=10,sticky=W)
 
-       year_combo= ttk.Combobox(CurrentCourse_frame,font=("times new roman",12,"bold"),state="readonly")
+       year_combo= ttk.Combobox(CurrentCourse_frame,textvariable=self.var_year,font=("times new roman",12,"bold"),state="readonly")
        year_combo["values"]=("Select Year", "2020-21", "2021-22", "2022-23","2023-24")
        year_combo.current(0)
        year_combo.grid(row=1, column=1, padx=2, pady=10, sticky=W)
 
        #semester
-       semester_label = Label(CurrentCourse_frame,textvariable=self.var_semester, text="Semetser",font=("times new roman",12,"bold"), bg="white")
+       semester_label = Label(CurrentCourse_frame, text="Semetser",font=("times new roman",12,"bold"), bg="white")
        semester_label.grid(row=1, column=2, padx=10,sticky=W)
 
-       semester_combo= ttk.Combobox(CurrentCourse_frame,font=("times new roman",12,"bold"),state="readonly")
+       semester_combo= ttk.Combobox(CurrentCourse_frame,textvariable=self.var_semester,font=("times new roman",12,"bold"),state="readonly")
        semester_combo["values"]=("Select Semester", "Semester-1", "Semester-2", "Semester-3","Semester-4","Semester-5","Semester-6","Semester-7","Semester-8")
        semester_combo.current(0)
        semester_combo.grid(row=1, column=3, padx=2, pady=10, sticky=W)
 
 
  #current student information
-       ClassStudent_frame = LabelFrame(Left_frame, bd=2, bg="white", relief=RIDGE, text="current course information", font=("times new roman", 12, "bold")) 
+       ClassStudent_frame = LabelFrame(Left_frame, bd=2, bg="white", relief=RIDGE, text="Class Student information", font=("times new roman", 12, "bold")) 
        ClassStudent_frame.place(x=10, y=240, width=710, height=310)
 
 
@@ -152,7 +145,7 @@ class Student:
        studentName_entry = ttk.Entry(ClassStudent_frame,textvariable=self.var_std_name, width=20, font=("times new roman", 12, "bold"))
        studentName_entry.grid(row=0, column=3, padx=10, pady=5, sticky=W)
 
-       #class division
+       #division
        studentDiv_label = Label(ClassStudent_frame, text="Class Division:", font=("times new roman", 12, "bold"), bg="white")
        studentDiv_label.grid(row=1, column=0, sticky=W)
 
@@ -169,9 +162,6 @@ class Student:
        #gender
        gender_label = Label(ClassStudent_frame, text="Gender:", font=("times new roman", 12, "bold"), bg="white")
        gender_label.grid(row=2, column=0, sticky=W)
-       # gender_entry = ttk.Entry(ClassStudent_frame,textvariable=self.var_gender, width=20, font=("times new roman", 12, "bold"))
-       # gender_entry.grid(row=2, column=1, padx=10, pady=5, sticky=W)
-
        gender_combo= ttk.Combobox(ClassStudent_frame,textvariable=self.var_gender,font=("times new roman",12,"bold"),state="readonly")
        gender_combo["values"]=("Male", "Female", "Other",)
        gender_combo.current(0)
@@ -207,6 +197,7 @@ class Student:
        radio1 = ttk.Radiobutton(ClassStudent_frame,variable=self.var_radio1, text="Take a photo sample",value="Yes")
        radio1.grid(row=6, column=0)
 
+    #    self.var_radio2=StringVar()
        radio2 = ttk.Radiobutton(ClassStudent_frame,variable=self.var_radio1, text="No Photo Sample",value="NO")
        radio2.grid(row=6, column=1)
 
@@ -238,14 +229,14 @@ class Student:
 
 # right label frame
        Right_frame = LabelFrame(self.root,bd=2,bg="white", relief=RIDGE, text= "Student details", font=("times new roman",12,"bold"))
-       Right_frame.place(x=780,y=250, width=730,height=580)
+       Right_frame.place(x=780,y=200, width=730,height=620)
 
-       img_right = Image.open("college_images\\download.webp")
+       img_right = Image.open("college_images\\data.jpeg")
        img_right = img_right.resize((500, 130))
        self.photoimg_right=ImageTk.PhotoImage(img_right)
 
        f_lbl = Label(self.root,image=self.photoimg_right)
-       f_lbl.place(x=785,y=270,width=720,height=130) 
+       f_lbl.place(x=785,y=220,width=720,height=130)
 
 
        # Search System
@@ -271,11 +262,11 @@ class Student:
 
 #table frame
        table_frame = Frame(Right_frame, bd=2, bg="white", relief=RIDGE) 
-       table_frame.place(x=5, y=215, width=710, height=330)
+       table_frame.place(x=5, y=215, width=710, height=370)
 
        scroll_x = ttk.Scrollbar(table_frame, orient=HORIZONTAL)
        scroll_y = ttk.Scrollbar(table_frame, orient=VERTICAL)
-       self.student_table= ttk.Treeview(table_frame,columns=("dep","course","year","sem","id","name","roll","gender","div","dob","email","phone","name","address","teacher","photo"),xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
+       self.student_table= ttk.Treeview(table_frame,columns=("dep","course","year","sem","id","name","div","roll","gender","dob","email","phone","address","teacher","photo"),xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
 
        scroll_x.pack(side=BOTTOM, fill=X)
        scroll_y.pack(side=RIGHT, fill=Y)
@@ -286,16 +277,16 @@ class Student:
        self.student_table.heading("course", text="Course")
        self.student_table.heading("year", text="Year")
        self.student_table.heading("sem", text="semester")
-       self.student_table.heading("id", text="StudentId")
-       self.student_table.heading("name", text="Name")
+       self.student_table.heading("id", text="Student Id")
+       self.student_table.heading("name", text="Student Name")
+       self.student_table.heading("div", text="Division")
        self.student_table.heading("roll", text="Roll No")
        self.student_table.heading("gender", text="Gender")
-       self.student_table.heading("div", text="Division")
        self.student_table.heading("dob", text="DOB")
        self.student_table.heading("email", text="Email")
        self.student_table.heading("phone", text="Phone")
        self.student_table.heading("address", text="Address")
-       self.student_table.heading("teacher", text="Teacher")
+       self.student_table.heading("teacher", text="Teacher Name")
        self.student_table.heading("photo", text="PhotoSampleStatus")
        self.student_table["show"]="headings"
 
@@ -305,9 +296,9 @@ class Student:
        self.student_table.column("sem", width=100)
        self.student_table.column("id", width=100)
        self.student_table.column("name", width=100)
+       self.student_table.column("div", width=100)
        self.student_table.column("roll", width=100)
        self.student_table.column("gender", width=100)
-       self.student_table.column("div", width=100)
        self.student_table.column("dob", width=100)
        self.student_table.column("email", width=100)
        self.student_table.column("phone", width=100)
@@ -323,7 +314,7 @@ class Student:
 
     def add_data(self):
        if self.var_dep.get()=="select Department" or self.var_std_name.get()==""or self.var_std_id.get()=="":
-             messagebox.showerror("Error","all fields are required",parent=self.root)
+             messagebox.showerror("Error","All fields are required",parent=self.root)
        else:
            
            try:
@@ -537,8 +528,6 @@ class Student:
               def face_cropped(img):
                   gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
                   faces = face_classifier.detectMultiScale(gray, 1.3,5)
-                  #scalling factor =1.3
-                  #minimum neighbour=5
                   for(x,y,w,h) in faces:
                       face_cropped = img[y:y+h,x:x+w]
                       return face_cropped
@@ -564,11 +553,7 @@ class Student:
             except Exception as es:
               messagebox.showerror("Error",f"due to:{str(es)}", parent=self.root)
 
-
-        
-
-
 if __name__ == "__main__":
-    root = Tk()  # Create a Tkinter root window
-    obj = Student(root)  # Create an instance of the Student class
+    root = Tk()  
+    obj = Student(root) 
     root.mainloop()  

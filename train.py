@@ -15,7 +15,7 @@ class Train:
        title_lbl = Label(root, text="Train data", font=("times new roman",35,"bold"),bg="white",fg="red")
        title_lbl.place(x=0, y=0, width=1530, height=45)
 
-       img_top = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img_top = Image.open("college_images\\download.webp")
        img_top = img_top.resize((1530, 325))
        self.photoimg_top=ImageTk.PhotoImage(img_top)
 
@@ -27,7 +27,7 @@ class Train:
        b1_1.place(x=0,y=380,width=1520,height=60)
 
 
-       img_bottom = Image.open("C:\\Users\\LENOVO\\OneDrive\\Desktop\\smart attendence system\\college_images\\download.webp")
+       img_bottom = Image.open("college_images\\download.webp")
        img_bottom = img_bottom.resize((1530, 325))
        self.photoimg_bottom=ImageTk.PhotoImage(img_bottom)
 

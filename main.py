@@ -1,4 +1,5 @@
 from tkinter import*
+from tkinter import ttk
 from tkinter import Toplevel,Button
 from PIL import Image, ImageTk
 import tkinter
@@ -14,7 +15,7 @@ class Face_Recognition_System:
     def __init__(self,root):
        self.root = root
        self.root.geometry("1530x790+0+0")
-       self.root.title("face recognition system")
+       self.root.title("Face Recognition System")
 
 #bg image
        img3 = Image.open("college_images\\wallpaperflare.com_wallpaper.jpg")
@@ -39,78 +40,78 @@ class Face_Recognition_System:
        b1_1=Button(root,text="Student Details",command= self.student_details,cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="red")
        b1_1.place(x=200,y=340,width=220,height=40)
 
-#student button
-       img5 = Image.open("college_images\\download.webp")
+     #face Detector
+       img5 = Image.open("college_images\\th.jpeg")
        img5 = img5.resize((220, 220))
        self.photoimg5=ImageTk.PhotoImage(img5)
 
-       b1=Button(root, image=self.photoimg4,cursor="hand2",command=self.face_data)
+       b1=Button(root, image=self.photoimg5,cursor="hand2",command=self.face_data)
        b1.place(x=500,y=140,width=220,height=220)
        
        b1_1=Button(root,text="Face Detector",cursor="hand2",command=self.face_data,font=("times new roman",15,"bold"),bg="darkblue",fg="red")
        b1_1.place(x=500,y=340,width=220,height=40)
 
        #Attendance
-       img6 = Image.open("college_images\\download.webp")
+       img6 = Image.open("college_images\\attendance.jpeg")
        img6 = img6.resize((220, 220))
        self.photoimg6=ImageTk.PhotoImage(img6)
 
-       b1=Button(root, image=self.photoimg4,cursor="hand2",command=self.attendance_data)
+       b1=Button(root, image=self.photoimg6,cursor="hand2",command=self.attendance_data)
        b1.place(x=800,y=140,width=220,height=220)
        
        b1_1=Button(root,text="Attendance",cursor="hand2",command=self.attendance_data,font=("times new roman",15,"bold"),bg="darkblue",fg="red")
        b1_1.place(x=800,y=340,width=220,height=40)
 
-#help
-       img7 = Image.open("college_images\\download.webp")
+      #help 
+       img7 = Image.open("college_images\\helpdesk.jpg")
        img7 = img7.resize((220, 220))
        self.photoimg7=ImageTk.PhotoImage(img7)
 
-       b1=Button(root, image=self.photoimg4,cursor="hand2",command=self.help)
+       b1=Button(root, image=self.photoimg7,cursor="hand2",command=self.help)
        b1.place(x=1100,y=140,width=220,height=220)
        
        b1_1=Button(root,text="Help Desk",cursor="hand2",command=self.help,font=("times new roman",15,"bold"),bg="darkblue",fg="red")
        b1_1.place(x=1100,y=340,width=220,height=40)
 
        #train
-       img8 = Image.open("college_images\\download.webp")
+       img8 = Image.open("college_images\\train.jpeg")
        img8 = img8.resize((220, 220))
        self.photoimg8=ImageTk.PhotoImage(img8)
 
-       b1=Button(root, image=self.photoimg4,cursor="hand2", command=self.train_data)
+       b1=Button(root, image=self.photoimg8,cursor="hand2", command=self.train_data)
        b1.place(x=200,y=420,width=220,height=220)
        
        b1_1=Button(root,text="Train",cursor="hand2",command=self.train_data,font=("times new roman",15,"bold"),bg="darkblue",fg="red")
        b1_1.place(x=200,y=620,width=220,height=40)
 
-              #photos
-       img9 = Image.open("college_images\\download.webp")
+         #photos
+       img9 = Image.open("college_images\\face-600x900.png")
        img9 = img9.resize((220, 220))
        self.photoimg9=ImageTk.PhotoImage(img9)
 
-       b1=Button(root, image=self.photoimg4,cursor="hand2", command=self.open_img)
+       b1=Button(root, image=self.photoimg9,cursor="hand2", command=self.open_img)
        b1.place(x=500,y=420,width=220,height=220)
        
        b1_1=Button(root,text="Photos",cursor="hand2",command=self.open_img,font=("times new roman",15,"bold"),bg="darkblue",fg="red")
        b1_1.place(x=500,y=620,width=220,height=40)
 
-              #Devloper
-       img10 = Image.open("college_images\\download.webp")
+         #Developer
+       img10 = Image.open("college_images\\developer.jpeg")
        img10 = img10.resize((220, 220))
        self.photoimg10=ImageTk.PhotoImage(img10)
 
-       b1=Button(root, image=self.photoimg4,cursor="hand2",command=self.devloper_data )
+       b1=Button(root, image=self.photoimg10,cursor="hand2",command=self.devloper_data )
        b1.place(x=800,y=420,width=220,height=220)
        
        b1_1=Button(root,text="Devloper",cursor="hand2",command=self.devloper_data, font=("times new roman",15,"bold"),bg="darkblue",fg="red")
        b1_1.place(x=800,y=620,width=220,height=40)
        
        #Exit face button
-       img11 = Image.open("college_images\\download.webp")
+       img11 = Image.open("college_images\\exit.webp")
        img11 = img11.resize((220, 220))
-       self.photoimg10=ImageTk.PhotoImage(img11)
+       self.photoimg11=ImageTk.PhotoImage(img11)
 
-       b1=Button(root, image=self.photoimg4,cursor="hand2",command=self.iExit )
+       b1=Button(root, image=self.photoimg11,cursor="hand2",command=self.iExit )
        b1.place(x=1100,y=420,width=220,height=220)
        
        b1_1=Button(root,text="Exit",cursor="hand2",command=self.iExit, font=("times new roman",15,"bold"),bg="darkblue",fg="red")
