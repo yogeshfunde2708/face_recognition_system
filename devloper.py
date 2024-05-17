@@ -13,14 +13,14 @@ class Devloper:
        title_lbl.place(x=0, y=0, width=1530, height=45)
 
        img_top = Image.open("college_images\developer.webp")
-       img_top = img_top.resize((1530, 720))
+       img_top = img_top.resize((1530, 800))
        self.photoimg_top=ImageTk.PhotoImage(img_top)
 
        f_lbl = Label(self.root,image=self.photoimg_top)
        f_lbl.place(x=0,y=55,width=1520,height=720) 
 
        main_frame=Frame(f_lbl, bd=2,bg="white")
-       main_frame.place(x=1000, y=0, width=500,height=600)
+       main_frame.place(x=1000, y=0, width=500,height=160)
 
        dev_label = Label(main_frame,  text="Developers:", font=("times new roman", 12, "bold"), bg="white")
        dev_label.place(x=0, y=5)

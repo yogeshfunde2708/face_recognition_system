@@ -48,7 +48,7 @@ class Face_Recognition_System:
        b1=Button(root, image=self.photoimg5,cursor="hand2",command=self.face_data)
        b1.place(x=500,y=140,width=220,height=220)
        
-       b1_1=Button(root,text="Face Detector",cursor="hand2",command=self.face_data,font=("times new roman",15,"bold"),bg="darkblue",fg="red")
+       b1_1=Button(root,text="Face Recognition",cursor="hand2",command=self.face_data,font=("times new roman",15,"bold"),bg="darkblue",fg="red")
        b1_1.place(x=500,y=340,width=220,height=40)
 
        #Attendance
@@ -81,7 +81,7 @@ class Face_Recognition_System:
        b1=Button(root, image=self.photoimg8,cursor="hand2", command=self.train_data)
        b1.place(x=200,y=420,width=220,height=220)
        
-       b1_1=Button(root,text="Train",cursor="hand2",command=self.train_data,font=("times new roman",15,"bold"),bg="darkblue",fg="red")
+       b1_1=Button(root,text="Train Data",cursor="hand2",command=self.train_data,font=("times new roman",15,"bold"),bg="darkblue",fg="red")
        b1_1.place(x=200,y=620,width=220,height=40)
 
          #photos

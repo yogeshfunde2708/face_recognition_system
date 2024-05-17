@@ -15,7 +15,7 @@ class Train:
        title_lbl = Label(root, text="Train data", font=("times new roman",35,"bold"),bg="white",fg="red")
        title_lbl.place(x=0, y=0, width=1530, height=45)
 
-       img_top = Image.open("college_images\\download.webp")
+       img_top = Image.open("college_images\\train1.png")
        img_top = img_top.resize((1530, 325))
        self.photoimg_top=ImageTk.PhotoImage(img_top)
 
@@ -23,11 +23,11 @@ class Train:
        f_lbl.place(x=0,y=55,width=1520,height=325)  
 
 #button
-       b1_1=Button(self.root,text="Train data",cursor="hand2",font=("times new roman",25,"bold"),bg="red",fg="white")
+       b1_1=Button(self.root,text="Train data",command=self.train_data,cursor="hand2",font=("times new roman",25,"bold"),bg="red",fg="white")
        b1_1.place(x=0,y=380,width=1520,height=60)
 
 
-       img_bottom = Image.open("college_images\\download.webp")
+       img_bottom = Image.open("college_images\\train2.jpg")
        img_bottom = img_bottom.resize((1530, 325))
        self.photoimg_bottom=ImageTk.PhotoImage(img_bottom)
 
@@ -39,16 +39,16 @@ class Train:
         path=[os.path.join(data_dir, file) for file in os.listdir(data_dir)]
 
         faces=[]
-        id=[]
+        ids=[]
 
         for image in path:
             img = Image.open(image).convert("L")  #gray scale image 
-            imageNp = np.array(img,"unit8")
+            imageNp = np.array(img,"uint8")
             id = int(os.path.split(image)[1].split('.')[1])
  
             faces.append(imageNp)
             ids.append(id)
-            cv2.imshow("training", imageNp)
+            cv2.imshow("Training", imageNp)
             cv2.waitKey(1)==13
         ids = np.array(ids)
 

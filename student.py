@@ -394,11 +394,11 @@ class Student:
 #update function
     def update_data(self):
         if self.var_dep.get()=="select Department" or self.var_std_name.get()==""or self.var_std_id.get()=="":
-             messagebox.showerror("Error","all fields are required",parent=self.root)
+             messagebox.showerror("Error","All fields are required",parent=self.root)
         else:
             try:
-               update = messagebox.askyesno("Update", "do you want to update thid student details", parent=self.root)
-               if update>0:
+               update = messagebox.askyesno("Update", "Do you want to update this student details", parent=self.root)
+               if update:
                      connection = mysql.connector.connect(
                      host="localhost",
                      user="root",
@@ -406,12 +406,11 @@ class Student:
                      database="face_recognizer",
                      )
                      my_cursor = connection.cursor()
-                     my_cursor.execute("update student set dep=%s,course=%s,year=%s,semester=%s,division=%s,roll=%s,gender=%s,dob=%s,email=%s,address=%s,phone=%s,teacher=%s,photosample=%s where student_id=%s",(
+                     my_cursor.execute("UPDATE student SET dep=%s,course=%s,year=%s,semester=%s,division=%s,roll=%s,gender=%s,dob=%s,email=%s,phone=%s,address=%s,teacher=%s,photosample=%s WHERE student_id=%s",(
                                                                                            self.var_dep.get(),
                                                                                            self.var_course.get(),
                                                                                            self.var_year.get(),
                                                                                            self.var_semester.get(),
-                                                                                           self.var_std_name.get(),
                                                                                            self.var_div.get(),
                                                                                            self.var_roll.get(),
                                                                                            self.var_gender.get(),
@@ -423,26 +422,23 @@ class Student:
                                                                                            self.var_radio1.get(),
                                                                                            self.var_std_id.get()
                                                                                        ))
-               else:
-                   if not update:
-                       return     
-               messagebox.showinfo("success","student detail updated",parent=self.root)
                connection.commit()
                self.fetch_data()
                connection.close()
+               messagebox.showinfo("Success","Student detail successfully updated",parent=self.root)
             except Exception as es:
-              messagebox.showerror("Error",f"due to:{str(es)}", parent=self.root)
+              messagebox.showerror("Error",f"Due to:{str(es)}", parent=self.root)
         
 
 #delete function
 
     def delete_data(self):
-        if self.va_student_id.get()=="":
+        if self.var_std_id.get()=="":
             messagebox.showerror("Error","Student id must be required",parent=self.root)
         else:
             try:
-                delete=messagebox.askyesno("student delete page", "do you want to delete this student",parent = self.root)
-                if delete>0:
+                delete=messagebox.askyesno("student delete page", "Do you want to delete this student",parent = self.root)
+                if delete:
                     connection = mysql.connector.connect(
                     host="localhost",
                     user="root",
@@ -450,18 +446,15 @@ class Student:
                     database="face_recognizer",
                 )
                     my_cursor = connection.cursor()
-                    sql="delete from student where student_id=%s "
+                    sql="DELETE FROM student WHERE student_id=%s "
                     val=(self.var_std_id.get(),)
                     my_cursor.execute(sql,val)
-                else:
-                    if not delete:
-                        return
                 connection.commit()
                 self.fetch_data()
                 connection.close()
-                messagebox.showinfo("delete","successfully deleted", parent= self.root)
+                messagebox.showinfo("Delete","Successfully deleted", parent= self.root)
             except Exception as es:
-              messagebox.showerror("Error",f"due to:{str(es)}", parent=self.root)
+              messagebox.showerror("Error",f"Due to:{str(es)}", parent=self.root)
                     
          #reset data
 
@@ -474,7 +467,7 @@ class Student:
         self.var_std_name.set(""),
         self.var_div.set("Select Division"),
         self.var_roll.set(""),
-        self.var_gender.set(""),
+        self.var_gender.set("Male"),
         self.var_dob.set(''),
         self.var_email.set(""),
         self.var_phone.set(""),
@@ -500,7 +493,7 @@ class Student:
               id=0
               for x in myresult:
                   id+=1
-              my_cursor.execute("update student SET dep=%s,course=%s,year=%s,semester=%s,division=%s,roll=%s,gender=%s,dob=%s,email=%s,address=%s,phone=%s,teacher=%s,photosample=%s where student_id=%s", (
+              my_cursor.execute("update student SET dep=%s,course=%s,year=%s,semester=%s,name=%s,division=%s,roll=%s,gender=%s,dob=%s,email=%s,address=%s,phone=%s,teacher=%s,photosample=%s where student_id=%s", (
                                                                                                 self.var_dep.get(),
                                                                                                 self.var_course.get(),
                                                                                                 self.var_year.get(),
@@ -523,7 +516,7 @@ class Student:
               self.reset_dat()
               connection.close()
 
-              #load predefined data on face frontails from open cv
+              #load predefined data on face frontals from open cv
               face_classifier = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
               def face_cropped(img):
                   gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -535,15 +528,15 @@ class Student:
               cap =cv2.VideoCapture(0)
               img_id = 0
               while True:
-                  ret, my_frame =cap.read()
+                  ret,my_frame =cap.read()
                   if face_cropped(my_frame) is not None:
                       img_id += 1
-                  face = cv2.resize(face_cropped(my_frame),(450,450))
-                  face = cv2.cvtColor(face,cv2.COLOR_BGR2GRAY)
-                  file_name_path = "data/user."+str(id)+"."+str(img_id)+".jpg"
-                  cv2.imwrite(file_name_path, face)
-                  cv2.putText(face, str(img_id),(50,50), cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)
-                  cv2.imshow("Cropped face",face)
+                      face = cv2.resize(face_cropped(my_frame),(450,450))
+                      face = cv2.cvtColor(face,cv2.COLOR_BGR2GRAY)
+                      file_name_path = "data/user."+str(id)+"."+str(img_id)+".jpg"
+                      cv2.imwrite(file_name_path, face)
+                      cv2.putText(face, str(img_id),(50,50), cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)
+                      cv2.imshow("Cropped face",face)
 
                   if cv2.waitKey(1) == 13 or int(img_id)==100:
                       break
