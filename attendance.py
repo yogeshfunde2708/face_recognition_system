@@ -21,22 +21,22 @@ class Attendance:
        self.var_atten_date=StringVar()
        self.var_atten_attendance=StringVar()
 #first image
-       img = Image.open("college_images\\download.webp")
+       img = Image.open("college_images\\attendance1.jpg")
        img = img.resize((800, 200))
        self.photoimg=ImageTk.PhotoImage(img)
 
        f_lbl = Label(self.root,image=self.photoimg)
-       f_lbl.place(x=0,y=0,width=800,height=200)
+       f_lbl.place(x=0,y=0,width=800,height=230)
 
 #second image
-       img1 = Image.open("college_images\\download.webp")
+       img1 = Image.open("college_images\\attendance2.jpg")
        img1 = img1.resize((800, 200))
        self.photoimg1=ImageTk.PhotoImage(img1)
 
        f_lbl = Label(self.root,image=self.photoimg1)
-       f_lbl.place(x=800,y=0,width=800,height=200)
+       f_lbl.place(x=800,y=0,width=800,height=230)
 
-       title_lbl = Label(root, text="Attendance management  System", font=("times new roman",35,"bold"),bg="red",fg="white")
+       title_lbl = Label(root, text="Attendance Management System", font=("times new roman",35,"bold"),bg="red",fg="white")
        title_lbl.place(x=0, y=0, width=1530, height=45)
 
        main_frame=Frame(self.root, bd=2,bg="white")
@@ -44,7 +44,7 @@ class Attendance:
 
 #left frame
        Left_frame = LabelFrame(self.root,bd=2,bg="white", relief=RIDGE, text= "Student Attendance details", font=("times new roman",12,"bold"))
-       Left_frame.place(x=10,y=250, width=730,height=580)
+       Left_frame.place(x=10,y=200, width=730,height=620)
        
        left_inside_frame=Frame(Left_frame, bd=2,relief=RIDGE,bg="white")
        left_inside_frame.place(x=5, y=50, width=720,height=500)
@@ -119,10 +119,10 @@ class Attendance:
 
 #right frame
        Right_frame = LabelFrame(self.root,bd=2,bg="white", relief=RIDGE, text= "Attendance details", font=("times new roman",12,"bold"))
-       Right_frame.place(x=780,y=250, width=730,height=580)
+       Right_frame.place(x=780,y=200, width=730,height=580)
 
        table_frame = Frame(Right_frame, bd = 2, relief=RIDGE )
-       table_frame.place(x=5, y=5, width=710, height=580)
+       table_frame.place(x=5, y=5, width=710, height=620)
 
        # scroll bar and table
        scroll_x = ttk.Scrollbar(table_frame, orient=HORIZONTAL)
@@ -210,8 +210,6 @@ class Attendance:
         self.var_atten_time.set("")
         self.var_atten_date.set("")
         self.var_atten_attendance.set("")
-
-
 
        
 if __name__ == "__main__":
