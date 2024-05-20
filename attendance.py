@@ -158,7 +158,7 @@ class Attendance:
 
        #fetch Data
 
-    def fetchDaat(self,rows):
+    def fetchData(self,rows):
         self.attendanceTable.delete(*self.attendanceTable.get_children())
         for i in rows:
             self.attendanceTable.insert("",END,values=i)
@@ -170,7 +170,7 @@ class Attendance:
             csvread= csv.reader(myfile, delimiter=",")
             for i in csvread:
                 mydata.append(i)
-            self.fetchDaat(mydata)
+            self.fetchData(mydata)
 
         #export csv
     def exportCsv(self):
@@ -183,7 +183,7 @@ class Attendance:
                 exp_write=csv.writer(myfile,delimiter=",")
                 for i in mydata:
                     exp_write.writerow(i)
-                    messagebox.showinfo("Data Export","your data exported to "+os.path.basename(fln)+"successfully")
+                    messagebox.showinfo("Data Export","Your data exported to "+os.path.basename(fln)+"Successfully")
         except Exception as es:
               messagebox.showerror("Error",f"due to :{str(es)}", parent=self.root)
 
